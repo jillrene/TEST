@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="./renderer/src/css/factory.css" />
+<link rel="stylesheet" href="./views/templates/<%= view.template %>/template.css" />
+
+<%- include( '/terminal-window', { wait: true, classes: 'motivate-terminal dramcop-window', title: view.parameters.terminalTitle, content: view.parameters.terminalContent, openDelay: view.parameters.hasOwnProperty( 'terminalOpenDelay' ) ? view.parameters.terminalOpenDelay : 4000, startWritingDelay: view.parameters.terminalStartWritingDelay, keyPressInterval: view.parameters.terminalKeyPressInterval } ) %>
+
+<% if ( view.parameters.dramDriveIcons ) { %>
+  <%- include( '/terminal-window', { wait: true, classes: 'motivate-files dramcop-window', title: view.parameters.dramDriveTitle || 'DRAMDRIVE', icons: view.parameters.dramDriveIcons || [{ img: 'Resistance_LOGO_GOLD.png', label: 'A|$33_1scrpt' }], style: { left: '45vw', top: '52.5vh', width: '52.5vw', height: '37.5vh' } } ) %>
+<% } %>
+
+<div data-javascript="./views/templates/<%= view.template %>/renderer.js"></div>
